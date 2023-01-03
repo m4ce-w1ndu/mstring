@@ -15,6 +15,15 @@ typedef struct mstring_t* mstring;
 mstring mstr_construct();
 
 /**
+ * @brief Constructs a new mstring object initializing
+ * its internal value.
+ * 
+ * @param init initialization value.
+ * @return mstring value or NULL pointer on failure.
+ */
+mstring mstr_construct_init(const char init[]);
+
+/**
  * @brief Deletes an mstring object from memory.
  * 
  * @param str string to delete.
