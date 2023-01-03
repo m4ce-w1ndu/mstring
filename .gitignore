@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/c++,visualstudio,visualstudiocode
-# Edit at https://www.toptal.com/developers/gitignore?templates=c++,visualstudio,visualstudiocode
+# Created by https://www.toptal.com/developers/gitignore/api/c++,visualstudio,visualstudiocode,cmake
+# Edit at https://www.toptal.com/developers/gitignore?templates=c++,visualstudio,visualstudiocode,cmake
 
 ### C++ ###
 # Prerequisites
@@ -34,6 +34,23 @@
 *.exe
 *.out
 *.app
+
+### CMake ###
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
+
+### CMake Patch ###
+# External projects
+*-prefix/
 
 ### VisualStudioCode ###
 .vscode/*
@@ -444,7 +461,12 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
+# CMake Build dirs
+build/
+cmake-build-debug/
+cmake-build-release/
+
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
 
-# End of https://www.toptal.com/developers/gitignore/api/c++,visualstudio,visualstudiocode
+# End of https://www.toptal.com/developers/gitignore/api/c++,visualstudio,visualstudiocode,cmake
