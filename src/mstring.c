@@ -113,6 +113,12 @@ void mstr_delete(mstring str)
     free(str);
 }
 
+int mstr_compare(mstring lhs, mstring rhs)
+{
+    if (NULL == lhs || NULL == rhs) return 0;
+    return strcmp(lhs->buffer, rhs->buffer);
+}
+
 static void error_handler()
 {
 
