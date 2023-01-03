@@ -20,4 +20,3 @@ mstring mstr_construct();
  * @param str string to delete.
  */
 void mstr_delete(mstring str);
-
