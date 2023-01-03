@@ -12,4 +12,7 @@ else()
     set(CMAKE_CXX_FLAGS_DEBUG "-Os")
 endif()
 
+enable_testing()
+add_subdirectory(test)
+
 add_library(${CMAKE_PROJECT_NAME} "src/mstring.c" "src/include/mstring.h")
