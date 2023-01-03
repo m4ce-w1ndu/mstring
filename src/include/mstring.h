@@ -23,6 +23,9 @@
 /// @brief Initial buffer capacity
 #define INITIAL_CAPACITY 1
 
+/// @brief Invalid string size constant
+#define MSTRING_NPOS SIZE_MAX
+
 /**
  * @brief mstring object structure.
  * 
