@@ -224,7 +224,62 @@ void mstr_append_string(mstring str, const char c_str[])
     str->buffer[str->size + 1] = '\0';
 }
 
+size_t mstr_find_char(mstring str, char ch)
+{
+    if (NULL == str || NULL == str->buffer) return MSTRING_NPOS;
+    char *found = strchr(str->buffer, ch);
+    return (NULL == found ? MSTRING_NPOS : (found - str->buffer));
+}
 
+size_t mstr_find_mstr(mstring str, mstring to_find)
+{
+    if (NULL == str || NULL == str->buffer) return MSTRING_NPOS;
+    return mstr_find_cstr(str, to_find->buffer);
+}
+
+size_t mstr_find_cstr(mstring str, const char c_str[])
+{
+    if (NULL == str || NULL == str->buffer) return MSTRING_NPOS;
+    char *found = strstr(str->buffer, c_str);
+    return (NULL == found ? MSTRING_NPOS : (found - str->buffer));
+}
+
+char mstr_at(mstring str, size_t idx)
+{
+    if (NULL == str || NULL == str->buffer || idx >= str->buffer)
+        return '\0';
+    return str->buffer[idx];
+}
+
+const char *mstr_at_cfront(mstring str)
+{
+    return (NULL == str || NULL == str->buffer ? 
+            NULL : (const char *) str->buffer);
+}
+
+const char *mstr_at_clast(mstring str)
+{
+    return (NULL == str || NULL == str->buffer ?
+            NULL : (const char *) &str->buffer[str->size - 1]);
+}
+
+char *mstr_at_front(mstring str)
+{
+    return (NULL == str || NULL == str->buffer ? 
+            NULL : str->buffer);
+}
+
+char *mstr_at_last(mstring str)
+{
+    return (NULL == str || NULL == str->buffer ? 
+            NULL : &str->buffer[str->size - 1]);
+}
+
+void mstr_clear(mstring str)
+{
+    if (NULL == str || NULL == str->buffer) return;
+    memset(str->buffer, '\0', sizeof(char) * str->capacity);
+}
 
 static void error_handler()
 {
