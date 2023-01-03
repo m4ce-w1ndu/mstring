@@ -116,7 +116,19 @@ void mstr_delete(mstring str)
 int mstr_compare(mstring lhs, mstring rhs)
 {
     if (NULL == lhs || NULL == rhs) return 0;
-    return strcmp(lhs->buffer, rhs->buffer);
+    return strcmp(lhs->buffer, rhs->buffer); 
+}
+
+size_t mstr_get_size(mstring str)
+{
+    if (NULL == str || NULL == str->buffer) return 0;
+    return str->size;
+}
+
+size_t mstr_get_capacity(mstring str)
+{
+    if (NULL == str || NULL == str->buffer) return 0;
+    return str->capacity;
 }
 
 static void error_handler()

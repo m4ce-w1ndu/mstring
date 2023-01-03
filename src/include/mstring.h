@@ -59,9 +59,7 @@ void mstr_delete(mstring str);
  * 
  * @param lhs left side.
  * @param rhs right side.
- * @return int value > 0 if right side is greater than left side,
- * value < 0 if left side is greater than right side,
- * 0 if they are equal
+ * @return int that follows the same rules as strcmp().
  */
 int mstr_compare(mstring lhs, mstring rhs);
 
