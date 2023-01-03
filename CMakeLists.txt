@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.8)
 project(mstring LANGUAGES C)
 
+set(CMAKE_C_STANDARD 99)
+
 # Set basic compiler flags
 if (MSVC)
     set(CMAKE_CXX_FLAGS_DEBUG "/Od /TC /Z7 /MTd")
