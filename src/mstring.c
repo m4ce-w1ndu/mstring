@@ -54,7 +54,7 @@ void reallocate(mstring str, size_t new_sz)
 {
     new_sz = new_size(new_sz);
     char *tmp = realloc(str->buffer, sizeof(char) * new_sz);
-    if (NULL != tmp) str->buffer = tmp;
+    if (NULL != tmp) { str->buffer = tmp; str->capacity = new_sz; }
     error_handler();
 }
 
@@ -180,6 +180,51 @@ void mstr_assign(mstring str, const char c_str[])
 
     memcpy(str->buffer, c_str, str->capacity * sizeof(char));
 }
+
+const char* mstr_get(mstring str)
+{
+    if (NULL == str || NULL == str->buffer) return NULL;
+    return ((const char *)str->buffer);
+}
+
+void mstr_remove_last(mstring str)
+{
+    if (NULL == str || NULL == str->buffer) return;
+    str->buffer[str->size - 1] = '\0';
+    str->size--;
+}
+
+void mstr_append_char(mstring str, char ch)
+{
+    if (NULL == str) return;
+    if (str->size + 2 >= str->capacity)
+        reallocate(str, str->size + 2);
+    
+    if (NULL == str->buffer) return;
+    str->buffer[str->size] = ch;
+    str->buffer[str->size + 1] = '\0';
+}
+
+void mstr_append_string(mstring str, const char c_str[])
+{
+    if (NULL == str) return;
+
+    // Get the length of the string to append
+    size_t len_app = strlen(c_str);
+    if (str->size + len_app + 1 >= str->capacity)
+        reallocate(str, str->size + len_app + 1);
+
+    if (NULL == str->buffer) return;
+
+    // Update all sizes
+    str->size += len_app;
+
+    // Concatenate strings
+    strcat(str->buffer, c_str);
+    str->buffer[str->size + 1] = '\0';
+}
+
+
 
 static void error_handler()
 {
