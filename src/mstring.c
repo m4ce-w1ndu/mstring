@@ -6,13 +6,10 @@
 /// @brief Contains the actual mstring private
 /// implementation.
 struct mstring_t {
-
+    char *buffer;
+    size_t size;
+    size_t capacity;
 };
-
-mstring mstr_construct()
-{
-
-}
 
 /**
  * @brief Calculates the new size of the string
@@ -37,4 +34,9 @@ inline static size_t new_size(size_t sz)
 
     ++sz;
     return sz;
+}
+
+mstring mstr_construct()
+{
+
 }
