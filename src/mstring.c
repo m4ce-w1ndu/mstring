@@ -283,5 +283,6 @@ void mstr_clear(mstring str)
 
 static void error_handler()
 {
-
+    char *error = strerror(errno);
+    fprintf(stderr, "error: %s\n", error);
 }
