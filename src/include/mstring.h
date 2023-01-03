@@ -1,3 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+
+/// @brief Maximum value of 16 bit size types
+#define SIZE_MAX_16 0xFFFF
+/// @brief Maximum value of 32 bit size types
+#define SIZE_MAX_32 0xFFFFFFFF
+/// @brief Maximum value of 64 bit size types
+#define SIZE_MAX_64 0xFFFFFFFFFFFFFFFF
+
+// Checks the size of the size_t type and sets
+// the ARCH_BITS macro accordinlgy
+#if (SIZE_MAX == SIZE_MAX_16)
+    #define ARCH_BITS 16
+#elif (SIZE_MAX == SIZE_MAX_32)
+    #define ARCH_BITS 32
+#elif (SIZE_MAX == SIZE_MAX_64)
+    #define ARCH_BITS 64
+#else
+    #error Unsupported architecture
+#endif
 
 /**
  * @brief mstring object structure.
