@@ -20,6 +20,9 @@
     #error Unsupported architecture
 #endif
 
+/// @brief Initial buffer capacity
+#define INITIAL_CAPACITY 1
+
 /**
  * @brief mstring object structure.
  * 
