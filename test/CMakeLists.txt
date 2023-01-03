@@ -6,3 +6,4 @@ add_subdirectory(lib/check)
 
 add_executable(tests "test.c")
 target_link_libraries(tests PUBLIC check)
+target_link_libraries(tests PUBLIC mstring)
