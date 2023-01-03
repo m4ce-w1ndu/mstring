@@ -2,6 +2,8 @@
 
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include <errno.h>
 
 /// @brief Contains the actual mstring private
 /// implementation.
@@ -34,6 +36,26 @@ inline static size_t new_size(size_t sz)
 
     ++sz;
     return sz;
+}
+
+/**
+ * @brief Handles errors of different kinds.
+ * 
+ */
+static void error_handler();
+
+/**
+ * @brief Reallocates the string buffer.
+ * 
+ * @param str string object
+ * @param new_sz new size (capacity)
+ */
+void reallocate(mstring str, size_t new_sz)
+{
+    new_sz = new_size(new_sz);
+    char *tmp = realloc(str->buffer, sizeof(char) * new_sz);
+    if (NULL != tmp) str->buffer = tmp;
+    error_handler();
 }
 
 mstring mstr_construct()
@@ -89,4 +111,9 @@ void mstr_delete(mstring str)
     }
 
     free(str);
+}
+
+static void error_handler()
+{
+
 }
