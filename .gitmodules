@@ -1,0 +1,3 @@
+[submodule "test/lib/check"]
+	path = test/lib/check
+	url = git@github.com:libcheck/check.git

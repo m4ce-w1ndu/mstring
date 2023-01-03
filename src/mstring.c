@@ -246,7 +246,7 @@ size_t mstr_find_cstr(mstring str, const char c_str[])
 
 char mstr_at(mstring str, size_t idx)
 {
-    if (NULL == str || NULL == str->buffer || idx >= str->buffer)
+    if (NULL == str || NULL == str->buffer || idx >= str->size)
         return '\0';
     return str->buffer[idx];
 }
