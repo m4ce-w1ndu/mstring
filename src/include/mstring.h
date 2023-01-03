@@ -11,11 +11,11 @@
 // Checks the size of the size_t type and sets
 // the ARCH_BITS macro accordinlgy
 #if (SIZE_MAX == SIZE_MAX_16)
-    #define ARCH_BITS 16
+    #define ARCH_BITS_16
 #elif (SIZE_MAX == SIZE_MAX_32)
-    #define ARCH_BITS 32
+    #define ARCH_BITS_32
 #elif (SIZE_MAX == SIZE_MAX_64)
-    #define ARCH_BITS 64
+    #define ARCH_BITS_64
 #else
     #error Unsupported architecture
 #endif
