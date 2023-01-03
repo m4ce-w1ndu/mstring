@@ -131,6 +131,56 @@ size_t mstr_get_capacity(mstring str)
     return str->capacity;
 }
 
+int mstr_is_empty(mstring str)
+{
+    return (mstr_get_size(str) == 0);
+}
+
+void mstr_reserve(mstring str, size_t sz)
+{
+    if (NULL == str || NULL == str->buffer) return;
+    char *buf = realloc(str->buffer, sizeof(char) * new_size(sz));
+    if (NULL == buf) return;
+
+    str->buffer = buf;
+    str->capacity = new_size(sz);
+}
+
+void mstr_resize(mstring str, size_t new_sz)
+{
+    if (NULL == str || NULL == str->buffer) return;
+    char *buf = (char *) realloc(str->buffer, sizeof(char) * new_sz + 1);
+    if (NULL == buf) return;
+
+    str->buffer = buf;
+    str->size = new_sz;
+    str->capacity = new_sz + 1;
+}
+
+void mstr_assign(mstring str, const char c_str[])
+{
+    if (NULL == str) return;
+    if (NULL == c_str || strlen(c_str) == 0) {
+        free(str->buffer);
+        str->capacity = 0;
+        str->size = 0;
+        return;
+    }
+
+    if (NULL != str->buffer) free(str->buffer);
+    str->size = strlen(c_str);
+    str->capacity = strlen(c_str) + 1;
+    str->buffer = (char *) malloc(sizeof(char) * str->capacity);
+
+    if (NULL == str->buffer) {
+        str->capacity = 0;
+        str->size = 0;
+        return;
+    }
+
+    memcpy(str->buffer, c_str, str->capacity * sizeof(char));
+}
+
 static void error_handler()
 {
 
