@@ -54,7 +54,11 @@ void reallocate(mstring str, size_t new_sz)
 {
     new_sz = new_size(new_sz);
     char *tmp = realloc(str->buffer, sizeof(char) * new_sz);
-    if (NULL != tmp) { str->buffer = tmp; str->capacity = new_sz; }
+    if (NULL != tmp) { 
+        str->buffer = tmp;
+        str->capacity = new_sz;
+        return;
+    }
     error_handler();
 }
 
