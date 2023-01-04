@@ -207,6 +207,7 @@ void mstr_append_char(mstring str, char ch)
     if (NULL == str->buffer) return;
     str->buffer[str->size] = ch;
     str->buffer[str->size + 1] = '\0';
+    str->size++;
 }
 
 void mstr_append_string(mstring str, const char c_str[])
