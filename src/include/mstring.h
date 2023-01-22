@@ -207,7 +207,7 @@ char mstr_at(mstring str, size_t idx);
  * @param str mstring object pointer.
  * @return const char* start of the string.
  */
-const char *mstr_at_cfront(mstring str);
+const char *mstr_at_cbegin(mstring str);
 
 /**
  * @brief Returns an immutable pointer to the end
@@ -216,7 +216,7 @@ const char *mstr_at_cfront(mstring str);
  * @param str mstring object pointer.
  * @return const char* end of the string.
  */
-const char *mstr_at_clast(mstring str);
+const char *mstr_at_cend(mstring str);
 
 /**
  * @brief Returns an immutable pointer to the
@@ -225,7 +225,7 @@ const char *mstr_at_clast(mstring str);
  * @param str mstring object pointer.
  * @return const char* end of the string.
  */
-const char *mstr_at_crfront(mstring str);
+const char *mstr_at_crbegin(mstring str);
 
 /**
  * @brief Returns an immutable pointer to the
@@ -234,7 +234,7 @@ const char *mstr_at_crfront(mstring str);
  * @param str mstring object pointer.
  * @return const char* start of the string.
  */
-const char *mstr_at_crlast(mstring str);
+const char *mstr_at_crend(mstring str);
 
 /**
  * @brief Returns a mutable pointer to the start 
@@ -243,7 +243,7 @@ const char *mstr_at_crlast(mstring str);
  * @param str mstring object pointer.
  * @return const char* start of the string.
  */
-char *mstr_at_front(mstring str);
+char *mstr_at_begin(mstring str);
 
 /**
  * @brief Returns a mutable pointer to the end
@@ -252,7 +252,7 @@ char *mstr_at_front(mstring str);
  * @param str mstring object pointer.
  * @return const char* end of the string.
  */
-char *mstr_at_last(mstring str);
+char *mstr_at_end(mstring str);
 
 /**
  * @brief Returns an immutable pointer to the
@@ -261,7 +261,7 @@ char *mstr_at_last(mstring str);
  * @param str mstring object pointer.
  * @return const char* end of the string.
  */
-char *mstr_at_rfront(mstring str);
+char *mstr_at_rbegin(mstring str);
 
 /**
  * @brief Returns an immutable pointer to the
@@ -270,7 +270,23 @@ char *mstr_at_rfront(mstring str);
  * @param str mstring object pointer.
  * @return const char* start of the string.
  */
-char *mstr_at_rlast(mstring str);
+char *mstr_at_rend(mstring str);
+
+/**
+ * @brief Returns the last character.
+ * 
+ * @param str mstring object pointer.
+ * @return last character or -1 if string is empty
+ */
+char mstr_at_back(mstring str);
+
+/**
+ * @brief Returns the first character.
+ *
+ * @param str mstring object pointer.
+ * @return first character or -1 if string is empty
+ */
+char mstr_at_front(mstring str);
 
 /**
  * @brief Clears the value of the string buffer.

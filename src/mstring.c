@@ -261,49 +261,63 @@ char mstr_at(mstring str, size_t idx)
     return str->buffer[idx];
 }
 
-const char *mstr_at_cfront(mstring str)
+const char *mstr_at_cbegin(mstring str)
 {
     return (NULL == str || NULL == str->buffer ? 
             NULL : (const char *) str->buffer);
 }
 
-const char *mstr_at_clast(mstring str)
+const char *mstr_at_cend(mstring str)
 {
     return (NULL == str || NULL == str->buffer ?
             NULL : (const char *) &str->buffer[str->size - 1]);
 }
 
 
-const char *mstr_at_crfront(mstring str)
+const char *mstr_at_crbegin(mstring str)
 {
-    return mstr_at_clast(str);
+    return mstr_at_cend(str);
 }
 
-const char *mstr_at_crlast(mstring str)
+const char *mstr_at_crend(mstring str)
 {
-    return mstr_at_cfront(str);
+    return mstr_at_cbegin(str);
 }
 
-char *mstr_at_front(mstring str)
+char *mstr_at_begin(mstring str)
 {
     return (NULL == str || NULL == str->buffer ? 
             NULL : str->buffer);
 }
 
-char *mstr_at_last(mstring str)
+char *mstr_at_end(mstring str)
 {
     return (NULL == str || NULL == str->buffer ? 
             NULL : &str->buffer[str->size - 1]);
 }
 
-char *mstr_at_rfront(mstring str)
+char *mstr_at_rbegin(mstring str)
 {
-    return mstr_at_last(str);
+    return mstr_at_end(str);
 }
 
-char *mstr_at_rlast(mstring str)
+char *mstr_at_rend(mstring str)
 {
-    return mstr_at_front(str);
+    return mstr_at_begin(str);
+}
+
+char mstr_at_back(mstring str)
+{
+    char* ret = mstr_at_end(str);
+    if (NULL == ret) return -1;
+    return *ret;
+}
+
+char mstr_at_front(mstring str)
+{
+    char* ret = mstr_at_begin(str);
+    if (NULL == ret) return -1;
+    return *ret;
 }
 
 void mstr_clear(mstring str)
