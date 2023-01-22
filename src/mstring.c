@@ -5,8 +5,11 @@
 #include <stdio.h>
 #include <errno.h>
 
-/// @brief Contains the actual mstring private
-/// implementation.
+/**
+ * @brief Contains the actual mstring data
+ * type private implementation, which is
+ * hidden from the user.
+*/
 struct mstring_t {
     char *buffer;
     size_t size;
