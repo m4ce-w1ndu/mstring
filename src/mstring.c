@@ -268,6 +268,17 @@ const char *mstr_at_clast(mstring str)
             NULL : (const char *) &str->buffer[str->size - 1]);
 }
 
+
+const char *mstr_at_crfront(mstring str)
+{
+    return mstr_at_clast(str);
+}
+
+const char *mstr_at_crlast(mstring str)
+{
+    return mstr_at_cfront(str);
+}
+
 char *mstr_at_front(mstring str)
 {
     return (NULL == str || NULL == str->buffer ? 
@@ -278,6 +289,16 @@ char *mstr_at_last(mstring str)
 {
     return (NULL == str || NULL == str->buffer ? 
             NULL : &str->buffer[str->size - 1]);
+}
+
+char *mstr_at_rfront(mstring str)
+{
+    return mstr_at_last(str);
+}
+
+char *mstr_at_rlast(mstring str)
+{
+    return mstr_at_front(str);
 }
 
 void mstr_clear(mstring str)

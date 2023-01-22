@@ -211,6 +211,24 @@ const char *mstr_at_cfront(mstring str);
 const char *mstr_at_clast(mstring str);
 
 /**
+ * @brief Returns an immutable pointer to the
+ * end of the string (reverse iterator).
+ * 
+ * @param str mstring object pointer.
+ * @return const char* end of the string.
+ */
+const char *mstr_at_crfront(mstring str);
+
+/**
+ * @brief Returns an immutable pointer to the
+ * start of the string (reverse iterator).
+ *
+ * @param str mstring object pointer.
+ * @return const char* start of the string.
+ */
+const char *mstr_at_crlast(mstring str);
+
+/**
  * @brief Returns a mutable pointer to the start 
  * of the string.
  * 
@@ -227,6 +245,24 @@ char *mstr_at_front(mstring str);
  * @return const char* end of the string.
  */
 char *mstr_at_last(mstring str);
+
+/**
+ * @brief Returns an immutable pointer to the
+ * end of the string (reverse iterator).
+ *
+ * @param str mstring object pointer.
+ * @return const char* end of the string.
+ */
+char *mstr_at_rfront(mstring str);
+
+/**
+ * @brief Returns an immutable pointer to the
+ * start of the string (reverse iterator).
+ *
+ * @param str mstring object pointer.
+ * @return const char* start of the string.
+ */
+char *mstr_at_rlast(mstring str);
 
 /**
  * @brief Clears the value of the string buffer.
