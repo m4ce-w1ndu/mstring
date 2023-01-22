@@ -326,6 +326,17 @@ void mstr_clear(mstring str)
     memset(str->buffer, '\0', sizeof(char) * str->capacity);
 }
 
+void mstr_swap(mstring lhs, mstring rhs)
+{
+    mstring tmp = lhs;
+    lhs->buffer = rhs->buffer;
+    lhs->capacity = rhs->capacity;
+    lhs->size = rhs->size;
+    rhs->buffer = tmp->buffer;
+    rhs->capacity = tmp->capacity;
+    rhs->size = tmp->size;
+}
+
 static void error_handler()
 {
     char *error = strerror(errno);

@@ -294,3 +294,11 @@ char mstr_at_front(mstring str);
  * @param str mstring object pointer.
  */
 void mstr_clear(mstring str);
+
+/**
+ * @brief Swaps the content of two strings.
+ * 
+ * @param lhs left side object pointer.
+ * @param rhs right side object pointer.
+ */
+void mstr_swap(mstring lhs, mstring rhs);
