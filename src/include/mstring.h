@@ -75,6 +75,14 @@ int mstr_compare(mstring lhs, mstring rhs);
 size_t mstr_get_size(mstring str);
 
 /**
+ * @brief Get the size (length) of the string.
+ *
+ * @param str mstring object pointer.
+ * @return size_t length of string.
+ */
+size_t mstr_get_length(mstring str);
+
+/**
  * @brief Get the capacity (memory size) of the string.
  * 
  * @param str mstring object pointer.

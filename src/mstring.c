@@ -129,6 +129,11 @@ size_t mstr_get_size(mstring str)
     return str->size;
 }
 
+size_t mstr_get_length(mstring str)
+{
+    return mstr_get_size(str);
+}
+
 size_t mstr_get_capacity(mstring str)
 {
     if (NULL == str || NULL == str->buffer) return 0;
